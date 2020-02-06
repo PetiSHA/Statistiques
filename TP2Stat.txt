@@ -1,0 +1,39 @@
+//Loi Normale
+moyenneNorm = function(n) {t=c(); for(i in 1:n){t[i]=mean(rnorm(10*i,0,1))}; t}
+moyenneSd = function(n) {t=c(); for(i in 1:n) {t[i]=sd(rnorm(10*i,0,1))};t}
+
+//Loi uniforme [2;6]
+moyenneUnif =function(n) {t=c(); for(i in 1:n){t[i]=mean(runif(n,min=2,max=6))}; t}
+sdUnif= function(n) {t=c(); for(i in 1:n) {t[i]=sd(runif(n,min=2,max=6))};t}
+
+//Loi Cauchy
+moyenneCa =function(n) {t=c(); for(i in 1:n){t[i]=mean(rcauchy(n))}; t}
+sdCa =function(n) {t=c(); for(i in 1:n){t[i]=sd(rcauchy(n))}; t}
+
+//Distribution des moyennes d'échantillon
+echantillonDeMoyennesNorm = function(n,k){t=c(); for(i in 1:k){t[i]=mean((rnorm(n,0,1))^2)}; t; }
+echantillonDeMoyennesNormUnif = function(n,k){t=c(); for(i in 1:k){t[i]=mean((runif(n,min=2,max=6))^2)}; t; }
+echantillonDeMoyennesCauchy = function(n,k){t=c(); for(i in 1:k){t[i]=mean((rcauchy(n))^2)}; t; }
+
+//Estimation d'une proportion
+estimProportion = function(t,alpha){t=c();}
+
+
+//TD3 Comparaison moyenne
+comparaisonMoyenneRef = function(ech,m0,alpha,h1)
+{
+	m = mean(ech);
+	if(length(ech)>=30 && h1=="!=")
+		sig = pnorm(1-(alpha/2));
+	if(length(ech)<30 && h1=="!=")
+		sig = 
+	else
+		s = sqrt((m0*(1-m0))/length(ech))*qnorm(1-alpha));
+	
+	
+	
+}
+
+distanceKhi2=function(obs,th) {k=0;for(i in 1:length(obs)){k<-k+(((th[i]-obs[i])^2)/th[i])};k}
+
+testKhi2=function(tabo,tabt,alpha) {s=qchisq(length(tabo)-1,1-alpha) ;}
